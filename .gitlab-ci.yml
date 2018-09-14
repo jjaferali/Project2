@@ -19,4 +19,4 @@ build:
   artifacts:
     expire_in: 1 month
     paths:
-      - server/bin/Release/netcoreapp2.0/publish/
+      - server/server/bin/Release/netcoreapp2.0/publish/
