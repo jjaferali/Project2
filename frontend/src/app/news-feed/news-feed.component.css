@@ -1,0 +1,22 @@
+.news-poster{
+    max-height: 175px;
+} 
+
+div#newsContainer {
+    flex-grow: 1;                         
+    display: flex;
+    flex-direction: column;   
+    flex-wrap:wrap; 
+    justify-content: space-between;
+    border: 3px solid rgb(13, 129, 238);
+}
+
+.news-desc::-webkit-scrollbar{
+    width:3px;
+    background: gray;
+}
+.news-desc::-webkit-scrollbar
+{
+    width:3px;
+    background: gray;
+}

@@ -1,0 +1,24 @@
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item" active>
+            <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">
+              <img src="/assets/news.png" width="30" height="30" class="d-inline-block align-top" alt="">NewsAPI<span class="sr-only">(current)</span>
+            </a>
+          </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">Home<span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/favorites']" [routerLinkActive]="['active']">Favorites</a>
+      </li>
+    </ul>
+    <form class="form-inline my-4 my-lg-0">
+      <input class="form-control mr-sm-4" type="search" id="search-text" placeholder="Search" aria-label="Search"
+        [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
+        <button id="search-btn" (click)="search()" class="btn btn-info" type="button">Search</button>
+    </form>
+  <!-- </div> -->
+</nav>
+</div>

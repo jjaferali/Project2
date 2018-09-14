@@ -1,0 +1,12 @@
+
+.news-poster{
+width: 1000px;
+}
+
+div#container {
+    flex-grow: 1;                        
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 3px solid rgb(13, 129, 238);
+}

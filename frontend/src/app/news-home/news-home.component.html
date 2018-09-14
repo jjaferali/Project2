@@ -1,0 +1,41 @@
+<main class="text-center py-5">
+  <div class="container">
+    <div class="row">
+      
+      <div class="container col-lg-12 col-md-12 category-drop-down"  [style.text-align]="'center'" >
+             <mat-form-field>          
+              <mat-select (selectionChange)="categorChange()" [(value)]="optionCategory" class="category-drop-down">
+                <mat-option value="General">General</mat-option>
+                <mat-option value="Technology">Technology</mat-option>
+                <mat-option value="Health">Health</mat-option>
+                <mat-option value="Entertainment">Entertainment</mat-option>
+                <mat-option value="Sports">Sports</mat-option>
+                <mat-option value="Business">Business</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+      <div class="container col-lg-6 col-md-12" id="headlines">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="text-center">Today's Headlines</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <app-news style="padding:10px;" *ngFor="let news of topHeadline" [news]="news" class="col-lg-4 col-md-12">
+            </app-news>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="container col-lg-6 col-md-12" id="category">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="text-center">{{optionCategory}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>            
+            <app-news style="padding:10px;" *ngFor="let news of category" [news]="news" class="col-lg-4 col-md-12">
+            </app-news>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</main>

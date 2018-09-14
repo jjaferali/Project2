@@ -1,0 +1,22 @@
+image : microsoft/aspnetcore-build:latest
+stages:
+  - compile
+  - test
+  - build
+compile:
+  stage: compile
+  script:
+    - 'dotnet restore'
+    - 'dotnet build'
+test:
+  stage: test
+  script:
+    - 'dotnet test test/test.csproj'
+build:
+  stage: build
+  script:
+    - 'dotnet publish frontend -c Release'
+  artifacts:
+    expire_in: 1 month
+    paths:
+      - newsAPI/bin/Release/netcoreapp2.0/publish/

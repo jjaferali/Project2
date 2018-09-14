@@ -13,6 +13,7 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
+        "NEWSDB": "Server=IP-AC1F567B\\SQLEXPRESS;Database=NewsDB;Integrated Security=True;",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
@@ -21,9 +22,10 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
+        "NEWSDB": "Server=IP-AC1F567B\\SQLEXPRESS;Database=NewsDB;Integrated Security=True;",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:55376/"
+      "applicationUrl": "http://localhost:55123/"
     }
   }
 }
