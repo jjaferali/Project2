@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  backend:
+    image: "server"
+    ports:
+      - "55123:80"
+    depends_on:
+      - db
+    environment:
+       "NEWSDB": "Server=IP-AC1F567B\\SQLEXPRESS;Database=NewsDB;Integrated Security=True;",
+  db:
+    image: "microsoft/mssql-server-windows-express"
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "sa"
+      ACCEPT_EULA: "Y"
+  frontend:
+        image: "frontend"
+        ports:
+            - "4200/4200"

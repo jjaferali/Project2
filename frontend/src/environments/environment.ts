@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   newsapiEndpoint:'https://newsapi.org/v2/',
-  newsDBEndpoint:'http://localhost:55375/api/News'
+  newsDBEndpoint:'http://localhost:55123/api/News'
 };
