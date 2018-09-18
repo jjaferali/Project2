@@ -24,7 +24,7 @@ export class NewsSearchComponent implements OnInit {
     this.route.queryParams
     .subscribe(params => {
         this.searchText = params['searchText'];
-        this.service.get(this.newsapiEndpoint+'everything?q='+this.searchText+'&apikey=1e422ee7aa8a4174b64cdc84245948cd&language=en&page=1')
+        this.service.get(this.newsapiEndpoint+'search/'+this.searchText)
         .subscribe(response => {
             this.news = response;
         });

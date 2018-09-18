@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
       this.getCategory();
     }
     getHeadLines(){
-        return this.service.get(this.newsapiEndpoint+'top-headlines?country=in&apikey=1e422ee7aa8a4174b64cdc84245948cd&language=en&page=1').
+        return this.service.get(this.newsapiEndpoint+'GetHeadLines').
                 subscribe(
                   result => {                                
                     this.topHeadline = result;                    
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     }
   
     getCategory(){
-      return this.service.get(this.newsapiEndpoint+'top-headlines?category='+this.optionCategory+'&apikey=1e422ee7aa8a4174b64cdc84245948cd&language=en&page=1').
+      return this.service.get(this.newsapiEndpoint+'GetCategory/'+this.optionCategory).
               subscribe(
                 response => {
                   this.category = response;

@@ -18,6 +18,8 @@ namespace test
         {
             mockNewsRepository = new Mock<INewsRepository>();
         }
+
+        #region Positive Tests
         [Fact]
         public void Get_ShouldReturnNewsListAsExpected()
         {
@@ -32,6 +34,7 @@ namespace test
             //Assert
             Assert.Equal(expected, actual);
         }
+             
 
         [Fact]
         public void Save_NewsAsExpected()
@@ -53,8 +56,8 @@ namespace test
             Assert.Equal(expected, actual);
         }
 
-       
-
+        #endregion
+        #region Negative Tests
         [Fact]
         public void Delete_ShouldReturnTrueforVaildId()
         {
@@ -68,7 +71,7 @@ namespace test
             //Assert
             Assert.True(actual);
         }
-
+        #endregion
         private List<News> GetNews()
         {
             return new List<News>

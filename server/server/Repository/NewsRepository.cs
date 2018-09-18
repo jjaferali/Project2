@@ -12,6 +12,7 @@ namespace server.Repository
     public class NewsRepository : INewsRepository
     {
         private readonly INewsDbContext _context;
+       
         public NewsRepository(INewsDbContext context)
         {
             _context = context;
@@ -66,5 +67,7 @@ namespace server.Repository
 
             return false;
         }
+
+      
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using server.Model;
 using server.Services;
@@ -34,6 +36,43 @@ namespace server.Controllers
                 return StatusCode(500);
             }
         }
+
+        /// <summary>
+        /// API method to get all headline from NewsAPI service.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetHeadLines")]
+
+        public async Task<IEnumerable<News>> GetHeadLines()
+        {
+            return await _service.GetHeadLines();                     
+        }
+       
+        /// <summary>
+        /// API method to get category wise news from NewsAPI service.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetCategory/{categoryName}")]
+        public async Task<IEnumerable<News>> GetCategory(string categoryName)
+        {
+            return await _service.GetCategory(categoryName);
+        }
+
+        
+        /// <summary>
+        /// API method to get all news based on search text from NewsAPI service.
+        /// </summary>
+        /// <param name="searchText"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("Search/{searchText}")]
+        public async Task<IEnumerable<News>> GetSearch(string searchText)
+        {
+            return await _service.GetSearch(searchText);
+        }
+
 
         // POST: api/News
         [HttpPost]

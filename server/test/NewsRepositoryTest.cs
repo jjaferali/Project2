@@ -33,7 +33,7 @@ namespace test
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
+               [Fact]
         public void InsertNewsAsExpected()
         {
             // Arrange 
@@ -61,7 +61,8 @@ namespace test
             // Assert
             Assert.True(actual);
         }
-
+        #endregion
+        #region Negative Tests
         [Fact]
         public void DeleteNewsforInVaildId()
         {

@@ -1,4 +1,5 @@
-﻿using server.Model;
+﻿using Newtonsoft.Json;
+using server.Model;
 using System.Collections.Generic;
 
 namespace server.Repository
@@ -7,6 +8,6 @@ namespace server.Repository
     {
         List<News> GetAllNews();
         int Save(News news);
-        bool Delete(int id);
+        bool Delete(int id);              
     }
 }

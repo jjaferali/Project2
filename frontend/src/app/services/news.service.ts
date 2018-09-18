@@ -15,19 +15,20 @@ export class NewsService {
   newsDBEndpoint:string;
   constructor(private http: HttpClient) {
     this.newsapiEndpoint=environment.newsapiEndpoint; 
-    this.newsDBEndpoint=environment.newsDBEndpoint; 
+   
   }
   get(url:string):Observable<Array<INews>> {
 
     return this.http.get(url)
                 .pipe(map((response:any)=> {
                   console.log(response);                 
-                  return this.MapNews(response.articles);
+                  return this.MapNews(response);
                 })); 
 
   }
+
   getFavourites():Observable<Array<INews>> {
-    var url = environment.newsDBEndpoint;  
+    var url = environment.newsapiEndpoint;  
     return this.http.get(url)
                 .pipe(map((response:any)=> {
                   console.log(response);                 
@@ -36,7 +37,7 @@ export class NewsService {
 
   }
   delete(id: number): Observable<boolean> {
-    return this.http.delete(this.newsDBEndpoint + '/' + id).pipe(
+    return this.http.delete(this.newsapiEndpoint + '/' + id).pipe(
         map((response: Response): any => {
             const status = response.status;
             if (status === 200) {
@@ -62,14 +63,14 @@ export class NewsService {
       
   };
   const bodyData = JSON.stringify(newsObj);
-
+  console.log(bodyData); 
   const httpOptions = {
       headers: new HttpHeaders({
           'Content-Type': 'application/json'
       })
   };
 
- return this.http.post(this.newsDBEndpoint, bodyData, httpOptions).pipe(
+ return this.http.post(this.newsapiEndpoint, bodyData, httpOptions).pipe(
       map((response: any): any => {
           return 'Added sucessfully.';
       }),
@@ -98,7 +99,7 @@ export class NewsService {
        response.urlToImage=data.urlToImage;
        response.publishedAt=data.publishedAt;
        response.newsId=data.newsId;
-       if (data.newsId === '' || data.newsId == null || data.newsId === undefined)
+       if (data.newsId == '0' ||data.newsId === '' || data.newsId == null || data.newsId === undefined)
         response.isExist=false;
       else response.isExist=true;
       
