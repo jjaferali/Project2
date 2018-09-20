@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
      this.getCategory();
     }
   
-    categorChange(){
+    categoryChange(){
       this.getCategory();
     }
     getHeadLines(){

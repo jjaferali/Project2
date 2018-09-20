@@ -13,6 +13,8 @@ import { NewsMaterialModule } from './news-material/news-material.module';
 import { HttpModule } from '@angular/http';
 import { NewsRoutingModule } from './news-route/news-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewsSearchComponent } from './news-search/news-search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -21,8 +23,8 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent,NewsHeaderComponent,HomeComponent, NewsComponent, NewsContainerComponent],
-      imports: [RouterTestingModule,NewsMaterialModule,HttpModule, NewsRoutingModule, BrowserAnimationsModule],
+      declarations: [AppComponent,NewsHeaderComponent,HomeComponent, NewsComponent, NewsContainerComponent,NewsSearchComponent],
+      imports: [RouterTestingModule,NewsMaterialModule,HttpModule,HttpClientModule, NewsRoutingModule, BrowserAnimationsModule],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
         NewsService],

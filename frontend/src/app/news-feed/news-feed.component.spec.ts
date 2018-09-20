@@ -11,6 +11,8 @@ import { NewsService } from '../services/news.service';
 import { APP_BASE_HREF } from '@angular/common';
 import { Observable } from 'rxjs';
 import { News } from '../models/news';
+import { NewsSearchComponent } from '../news-search/news-search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('NewsComponent', () => {
   let component: NewsComponent;
@@ -19,8 +21,8 @@ describe('NewsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent, NewsComponent, NewsContainerComponent],
-      imports: [NewsMaterialModule,HttpModule, NewsRoutingModule, BrowserAnimationsModule],
+      declarations: [HomeComponent, NewsComponent, NewsContainerComponent,NewsSearchComponent],
+      imports: [NewsMaterialModule,HttpModule,HttpClientModule, NewsRoutingModule, BrowserAnimationsModule],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
         NewsService]
@@ -31,11 +33,11 @@ describe('NewsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NewsComponent);
     component = fixture.componentInstance;    
-    component.news.newsId = 1;    
+    //component.news.newsId = 1;    
     fixture.detectChanges();
     newsService = TestBed.get(NewsService);
-    spyOn(newsService, 'post').and.returnValue(new Observable<Array<News>>());
-    spyOn(newsService, 'delete').and.returnValue(new Observable<Array<News>>());
+    spyOn(newsService, 'post').and.returnValue({ subscribe: () => {} });
+    spyOn(newsService, 'delete').and.returnValue({ subscribe: () => {} });
   });
 
   it('addNews method should add news to favorites list.', async(() => {

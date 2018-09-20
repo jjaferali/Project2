@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { APP_BASE_HREF } from '@angular/common';
 import { Observable } from 'rxjs';
 import { News } from '../models/news';
+import { NewsSearchComponent } from '../news-search/news-search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('NewsContainerComponent', () => {
   let component: NewsContainerComponent;
@@ -19,11 +21,12 @@ describe('NewsContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent, NewsComponent, NewsContainerComponent],
-      imports: [NewsMaterialModule,HttpModule, NewsRoutingModule, BrowserAnimationsModule],
+      declarations: [HomeComponent, NewsComponent, NewsContainerComponent,NewsSearchComponent],
+      imports: [NewsMaterialModule,HttpModule,HttpClientModule, NewsRoutingModule, BrowserAnimationsModule],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
-        NewsService]
+        NewsService],
+        
     })
       .compileComponents();
   }));
@@ -31,14 +34,14 @@ describe('NewsContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NewsContainerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
-    newsService = TestBed.get(NewsService);
-    spyOn(newsService, 'get').and.returnValue(new Observable<Array<News>>());
+    fixture.detectChanges();    
+    newsService = TestBed.get(NewsService);   
+    spyOn(newsService, 'getFavourites').and.returnValue(new Observable<Array<News>>());
   });
 
   it('getFavouiteNews method should call api getAllNews Method.', async(() => {
     component.getFavouiteNews();
     fixture.detectChanges();
-    expect(newsService.get).toHaveBeenCalled();
+    expect(newsService.getFavourites).toHaveBeenCalled();
   }));
 });
