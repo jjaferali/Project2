@@ -25,10 +25,11 @@ namespace server
         
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = "Server=IP-AC1F567B\\SQLEXPRESS;Database=NewsDB;Integrated Security=True;"; //Environment.GetEnvironmentVariable("NEWSDB");
+             var connectionString = Environment.GetEnvironmentVariable("NEWSDB");
              //Dependency injection
             if (string.IsNullOrEmpty(connectionString))
-                connectionString =  ((ConfigurationSection)(Configuration.GetSection("ConnectionString").GetSection("DefaultConnection"))).Value;
+                //connectionString =  ((ConfigurationSection)(Configuration.GetSection("ConnectionString").GetSection("NewsDBConnection"))).Value;
+                connectionString = Configuration.GetConnectionString("NewsDBConnection");
             services.AddDbContext<NewsDbContext>(options => options.UseSqlServer(connectionString));
             
             services.AddCors(cors => cors.AddPolicy("corspolicy", builders => builders.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
