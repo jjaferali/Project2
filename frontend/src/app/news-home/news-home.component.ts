@@ -32,11 +32,15 @@ export class HomeComponent implements OnInit {
     getHeadLines(){
         return this.service.get(this.newsapiEndpoint+'GetHeadLines').
                 subscribe(
-                  result => {                                
-                    this.topHeadline = result;                    
+                  result => { 
+                    if(result.length>0)                               
+                    this.topHeadline = result;   
+                    else
+                    window.alert('No news found.');                  
                   }, 
                   err => {                      
                       console.log(err);
+                      window.alert('Could not connect to News API server.'); 
                   });         
   
     }
@@ -48,7 +52,7 @@ export class HomeComponent implements OnInit {
                   this.category = response;
                 },
                  err => {                      
-                  console.log(err);
+                  console.log(err);                
               });          
   
   }

@@ -5,6 +5,19 @@ export class AppPage {
     return browser.get('/');
   }
 
+  navigateToHome() {
+    return browser.get('/home');
+  }
+
+  navigateToFavorites() {
+    return browser.get('/favorites');
+  }
+
+  navigateToSearch() {
+    return browser.get('/search-result?searchText=hi'); 
+   }
+
+ 
   getParagraphText() {
     return element(by.css('app-root h1')).getText();
   }
@@ -17,6 +30,9 @@ export class AppPage {
     return element(by.css('[ng-reflect-router-link="/favorites"]'));
   }
 
+  getHomeTab(){
+    return element(by.xpath('/html/body/app-root/app-header/div/nav/ul/li[2]/a'));
+  }
   getSearchButtton(){
     return element(by.xpath('//*[@id="search-btn"]'));
   }
@@ -37,13 +53,8 @@ export class AppPage {
   getCategoryNews(){
     return element.all(by.xpath('/html/body/app-root/app-home/main/div/div/div[2]/mat-card/mat-card-content/app-news'));
   }
-
-  navigateToHeadlines() {
-    return browser.get('/headlines');
-  }
-
-  navigateToFavoritess() {
-    return browser.get('/favorites');
+  getSearchNews(){
+    return element.all(by.xpath('/html/body/app-root/app-news-search/div/div/app-news'));
   }
 
   getAddFavoriteButton() {
@@ -51,6 +62,6 @@ export class AppPage {
   }
 
   getRemoveFavoriteButton() {
-    return element(by.className('btn-unfavorite'));
+    return element(by.className('btn-favorite'));
   }
 }

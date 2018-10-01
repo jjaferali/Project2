@@ -1,5 +1,6 @@
 .news-poster{
     max-height: 175px;
+    max-width: 300px;
 } 
 
 div#newsContainer {

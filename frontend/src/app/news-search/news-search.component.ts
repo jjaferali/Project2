@@ -24,10 +24,15 @@ export class NewsSearchComponent implements OnInit {
     this.route.queryParams
     .subscribe(params => {
         this.searchText = params['searchText'];
-        this.service.get(this.newsapiEndpoint+'search/'+this.searchText)
-        .subscribe(response => {
+        if( this.searchText!="") 
+         this.service.get(this.newsapiEndpoint+'search/'+this.searchText)
+        .subscribe(response => {          
             this.news = response;
-        });
+        },
+        err => {                      
+          console.log(err);
+          window.alert('Could not connect to News API server.'); 
+      });         
     });
   }
     
