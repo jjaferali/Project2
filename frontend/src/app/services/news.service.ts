@@ -21,7 +21,7 @@ export class NewsService {
 
     return this.http.get(url)
                 .pipe(map((response:any)=> {
-                  console.log(response);                 
+                  //console.log(response);                 
                   return this.MapNews(response);
                 })); 
 
@@ -31,7 +31,7 @@ export class NewsService {
     var url = environment.newsapiEndpoint;  
     return this.http.get(url)
                 .pipe(map((response:any)=> {
-                  console.log(response);                 
+                 // console.log(response);                 
                   return this.MapNews(response);
                 })); 
 

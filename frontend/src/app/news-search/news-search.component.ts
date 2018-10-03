@@ -30,7 +30,7 @@ export class NewsSearchComponent implements OnInit {
             this.news = response;
         },
         err => {                      
-          console.log(err);
+         // console.log(err);
           window.alert('Could not connect to News API server.'); 
       });         
     });

@@ -28,7 +28,7 @@ export class NewsContainerComponent implements OnInit {
         this.news = result;                    
       }, 
       err => {                      
-          console.log(err);
+          //console.log(err);
       });
   }      
   
