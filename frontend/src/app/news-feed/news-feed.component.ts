@@ -3,6 +3,7 @@ import { News } from '../models/news';
 import { NewsService } from '../services/news.service';
 import { Router } from '@angular/router';
 import { INews } from '../models/news.inteface';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class NewsComponent implements OnInit {
   @Input()
   news: INews;
   newsFaVourite: INews[];
-  constructor(private newsService: NewsService,
+  constructor(private newsService: NewsService,location: Location,
     private router: Router) { }
 
   ngOnInit() {
@@ -35,8 +36,9 @@ export class NewsComponent implements OnInit {
   deleteNews(id: number) {
     this.newsService.delete(id).subscribe(
         response => {         
-            window.alert('Deleted Succesfully');  
+            window.alert('Deleted Succesfully');             
             this.router.navigate(['/home']);  
+            location.reload();
           
         });
         

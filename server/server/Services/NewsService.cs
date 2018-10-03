@@ -63,7 +63,20 @@ namespace server.Services
                     news = JsonConvert.DeserializeObject<NewsList>(responseData);
 
                 }
-            }            
+            }
+            //Checking the news exist in DB
+            foreach (var news1 in news.ListOfNews)
+            {
+                foreach (var news2 in _repository.GetAllNews())
+                {
+                    if (news1.Title == news2.Title)
+                    {
+                        news1.IsExist = true;
+                        news1.NewsId= news2.NewsId;
+                    }
+
+                }
+            }
             return await Task.Run(() => new List<News>(news.ListOfNews));
 
         }
@@ -86,6 +99,19 @@ namespace server.Services
 
                 }
             }
+            //Checking the news exist in DB
+            foreach (var news1 in news.ListOfNews)
+            {
+                foreach (var news2 in _repository.GetAllNews())
+                {
+                    if (news1.Title == news2.Title)
+                    {
+                        news1.IsExist = true;
+                        news1.NewsId = news2.NewsId;
+                    }
+
+                }
+            }
             return await Task.Run(() => new List<News>(news.ListOfNews));
         }
 
@@ -105,6 +131,19 @@ namespace server.Services
                 {
                     string responseData = await response.Content.ReadAsStringAsync();
                     news = JsonConvert.DeserializeObject<NewsList>(responseData);
+
+                }
+            }
+            //Checking the news exist in DB
+            foreach (var news1 in news.ListOfNews)
+            {
+                foreach (var news2 in _repository.GetAllNews())
+                {
+                    if (news1.Title == news2.Title)
+                    {
+                        news1.IsExist = true;
+                        news1.NewsId = news2.NewsId;
+                    }
 
                 }
             }

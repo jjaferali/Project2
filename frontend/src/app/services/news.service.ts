@@ -63,7 +63,7 @@ export class NewsService {
       
   };
   const bodyData = JSON.stringify(newsObj);
-  console.log(bodyData); 
+  //console.log(bodyData); 
   const httpOptions = {
       headers: new HttpHeaders({
           'Content-Type': 'application/json'
@@ -101,7 +101,8 @@ export class NewsService {
        response.newsId=data.newsId;
        if (data.newsId == '0' ||data.newsId === '' || data.newsId == null || data.newsId === undefined)
         response.isExist=false;
-      else response.isExist=true;
+      else
+       response.isExist=true;
       
        return response;    
   }
