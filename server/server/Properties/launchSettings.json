@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
-        "NEWSDB": "Server=.\\SQLEXPRESS;Initial Catalog=NewsInfoDB;Integrated Security=True;",
+        "NEWSDB": "Server=.\\SQLEXPRESS;Initial Catalog=NewsInfo;Integrated Security=True;",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
@@ -22,7 +22,7 @@
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
-        "NEWSDB": "Server=.\\SQLEXPRESS;Initial Catalog=NewsInfoDB;Integrated Security=True;",
+        "NEWSDB": "Server=.\\SQLEXPRESS;Initial Catalog=NewsInfo;Integrated Security=True;",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:55123/"

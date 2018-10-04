@@ -8,7 +8,7 @@ services:
     depends_on:
       - db
     environment:
-       "NEWSDB": "Server=db;Database=NewsInfoDB;Integrated Security=True;",
+       "NEWSDB": "Server=db;Database=NewsInfo;Integrated Security=True;",
   db:
     image: "microsoft/mssql-server-windows-express"
     ports:
